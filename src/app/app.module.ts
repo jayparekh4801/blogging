@@ -10,6 +10,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { BlogSingleComponent } from './Components/blog-single/blog-single.component';
 import { RecordVideoComponent } from './Components/record-video/record-video.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { KonsultProfileComponent } from './Components/konsult-profile/konsult-profile.component';
+import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { RegisterComponent } from './Components/register/register.component';
     LoginComponent,
     BlogSingleComponent,
     RecordVideoComponent,
-    RegisterComponent
+    RegisterComponent,
+    KonsultProfileComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
