@@ -207,7 +207,7 @@
 
                             <div class="mt-3">
                                 <a routerLink="/register">
-                                    <button class="btn site-btn w-100" [disabled] = "registerForm.invalid">Register</button>
+                                    <button class="btn site-btn w-100" [disabled] = "registerForm.invalid" (click) = "registerUser()">Register</button>
                                 </a>
                             </div>
 

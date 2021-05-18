@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterData } from 'src/app/Datamodels/registerData';
+import { AuthService } from 'src/app/Services/auth/auth.service';
+import Swal from 'sweetalert2'
 
 @Component({
 	selector: 'app-register',
@@ -9,7 +12,8 @@ import { RegisterData } from 'src/app/Datamodels/registerData';
 })
 export class RegisterComponent implements OnInit {
 
-	constructor() { }
+	constructor(private authService : AuthService,
+				private router : Router) { }
 	registerData: RegisterData = {
 		firstName: "",
 		lastName: "",
@@ -41,6 +45,18 @@ export class RegisterComponent implements OnInit {
 
 	get password() {
 		return this.registerForm.get('password') as FormControl;
+	}
+
+	registerUser() {
+		this.authService.registerUser(this.registerData).subscribe((data : any) => {
+			if(data.status) {
+				localStorage.setItem('token', data.token)
+				window.location.href = "https://konsult-app.herokuapp.com/profile";
+			}
+			else {
+				Swal.fire("Konsult", "Registration Failed. Try Again!", "error");
+			}
+		})
 	}
 
 }

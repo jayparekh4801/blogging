@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginData } from 'src/app/Datamodels/loginData';
+import { AuthService } from 'src/app/Services/auth/auth.service';
+import Swal from 'sweetalert2'
 
 @Component({
 	selector: 'app-login',
@@ -9,7 +11,7 @@ import { LoginData } from 'src/app/Datamodels/loginData';
 })
 export class LoginComponent implements OnInit {
 
-	constructor() { }
+	constructor(private authService : AuthService) { }
 	loginData : LoginData = {
 		email : "",
 		password : ""
@@ -29,6 +31,19 @@ export class LoginComponent implements OnInit {
 
 	get password() {
 		return this.loginForm.get('password') as FormControl;
+	}
+
+	loginUser() {
+		console.log("hi");
+		this.authService.loginUser(this.loginData).subscribe((data : any) => {
+			console.log(data)
+			if(data.status) {
+				localStorage.setItem('token', data.token)
+				window.location.href = "https://konsult-app.herokuapp.com/profile";
+			}
+		}, (err) => {
+			Swal.fire("Konsult", "Email Or Password Is Wrong", "error");
+		})
 	}
 
 }

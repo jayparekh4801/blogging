@@ -14,6 +14,7 @@ import { KonsultProfileComponent } from './Components/konsult-profile/konsult-pr
 import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 import { RecordThankuComponent } from './Components/record-thanku/record-thanku.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
