@@ -12,6 +12,8 @@ import { RecordVideoComponent } from './Components/record-video/record-video.com
 import { RegisterComponent } from './Components/register/register.component';
 import { KonsultProfileComponent } from './Components/konsult-profile/konsult-profile.component';
 import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
+import { RecordThankuComponent } from './Components/record-thanku/record-thanku.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,14 @@ import { ResetpasswordComponent } from './Components/resetpassword/resetpassword
     RecordVideoComponent,
     RegisterComponent,
     KonsultProfileComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    RecordThankuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
